@@ -1,0 +1,55 @@
+{
+  "name": "@lengend-nightmare/engine",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "A platform-neutral TypeScript engine for deterministic monster arena games.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lengend-nightmare/engine.git",
+    "directory": "lib/lengend-nightmare-engine"
+  },
+  "bugs": {
+    "url": "https://github.com/lengend-nightmare/engine/issues"
+  },
+  "homepage": "https://lengendnightmare.dev/engine",
+  "keywords": [
+    "game-engine",
+    "typescript",
+    "deterministic",
+    "turn-based",
+    "real-time"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "prepack": "pnpm run build",
+    "pack:release": "pnpm run build && node scripts/pack-release.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:"
+  }
+}
